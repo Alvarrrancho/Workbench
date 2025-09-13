@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupos de Investigación</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body class="container py-4">
+    <h1 class="mb-4">Gestión de Grupos de Investigación</h1>
+
+    <!-- Listado de grupos (GET) -->
+    <button id="btnCargar" class="btn btn-primary mb-3">Cargar Grupos</button>
+    <ul id="listaGrupos" class="list-group mb-4"></ul>
+
+    <!-- Formulario registrar docente (POST) -->
+    <h2>Registrar Docente</h2>
+    <form id="formDocente" class="mb-4">
+        <!-- Campo nombre docente -->
+        <input type="text" class="form-control mb-2" id="nombre" placeholder="Nombre docente" required>
+
+        <!-- Campo formación académica -->
+        <!-- COMPLETAR -->
+
+        <input type="text" class="form-control mb-2" id="formd" placeholder="Formacion Academica" required>
+
+        <!-- Campo horario de atención -->
+        <!-- COMPLETAR -->
+        <input type="text" class="form-control mb-2" id="horario" placeholder="Horario Atencion" required>
+
+        <!-- Campo grupo -->
+        <select class="form-control mb-2" id="grupo">
+            <option value="COMBA I+D">COMBA I+D</option>
+            <option value="GIEIAM">GIEIAM</option>
+        </select>
+
+        <button type="submit" class="btn btn-success">Registrar</button>
+    </form>
+
+    <!-- Formulario estudiante (para completar por el estudiante) -->
+    <!-- COMPLETAR -->
+    <h2>Estudiante</h2>
+    <form id="formEstudiante" class="mb-4">
+
+        <input type="text" class="form-control mb-2" id="nombre" placeholder="Nombre Estudiante" required>
+
+        <input type="text" class="form-control mb-2" id="codigo" placeholder="Codigo" required>
+
+        <input type="text" class="form-control mb-2" id="carrera" placeholder="Carrera" required>
+
+        <select class="form-control mb-2" id="semillero">
+            <option value="COMBA">COMBA</option>
+            <option value="INFORMA">INFORMA</option>
+        </select>
+
+        <button type="submit" class="btn btn-success">Vincular</button>
+
+    </form>
+
+    <!-- Formulario actividad semillero (para completar por el estudiante) -->
+    <!-- COMPLETAR -->
+    <h2>Actividad Semillero</h2>
+    <form id="formActividad" class="mb-4">
+
+        <select class="form-control mb-2" id="actividad">
+            <option value="TALLER">Taller</option>
+            <option value="CONFERENCIA">Conferencia</option>
+            <option value="EVENTO">evento</option>
+        </select>
+
+        <input type="number" class="form-control mb-2" id="fecha" placeholder="Fecha" required>
+
+        <input type="number" class="form-control mb-2" id="hora" placeholder="hora" required>
+
+        <input type="number" class="form-control mb-2" id="asistentes" placeholder="Limite Asistentes" required>
+
+        <input type="text" class="form-control mb-2" id="resumen" placeholder="Resumen" required>
+
+        <button type="submit" class="btn btn-success">Agregar</button>
+
+    </form>
+
+    <script>
+        const apiURL = "https://JSONPlaceholder";
+        const lista = document.getElementById("listaGrupos");
+        const btnCargar = document.getElementById("btnCargar");
+        const formDoc = document.getElementById("formDocente");
+        const formEst = document.getElementById("formEstudiante");
+        const formAct = document.getElementById("formActividad");
+
+        // Ejemplo GET - cargar grupos
+        btnCargar.addEventListener("click", async (a) => {
+            // COMPLETAR: usar fetch con GET hacia JSONPlaceholder
+            // Mostrar al menos dos grupos en la lista
+
+           
+            // Ejemplo POST - registrar docente
+            formDocente.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                // COMPLETAR: capturar los datos del formulario
+                // Convertir a JSON y enviarlos con fetch (POST)
+                // Mostrar el resultado en un alert o en consola
+
+                const nombreDocente = document.getElementById("nombre").value;
+
+                const formAcademica = document.getElementById("formd").value;
+
+                const horario = document.getElementById("horario").value;
+
+                const group = document.getElementById("grupo").value;
+
+                const docente = { nombre, formd, horario, grupo };
+
+            });
+
+            fetch(apiURL, {
+
+                method: "POST",
+                body: JSON.stringify(docente)
+
+            })
+
+
+
+            });
+
+    </script>
+</body>
+
+</html>
